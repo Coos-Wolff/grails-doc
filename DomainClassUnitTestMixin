@@ -1,0 +1,14 @@
+DomainClassUnitTestMixin Basics
+
+DomainClassUnitTestMixin is typically used in combination with testing either a controller, service or tag library where the domain is a mock collaborator defined by the Mock annotation:
+
+import grails.test.mixin.TestFor
+import grails.test.mixin.Mock
+import spock.lang.Specification
+@TestFor(BookController)
+@Mock(Book)
+class BookControllerSpec extends Specification {
+    // …
+}
+
+The example above tests the BookController class and mocks the behavior of the Book domain class as well. For example consider a typical scaffolded save controller action:
